@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovena Health — Juzo Compression</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <ul class="nav-links">
+            <li><a href="#products">Shop</a></li>
+            <li><a href="#features">Why Juzo</a></li>
+            <li><a href="#guide">Compression</a></li>
+            <li><a href="#hiw">How It Works</a></li>
+        </ul>
+        <a href="#" class="logo">
+            <span style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--n900);">OVENA <span style="color:var(--teal-d);">HEALTH</span></span>
+        </a>
+        <div class="nav-cart-right">
+            <button class="nav-icon-btn" onclick="openCart()">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <canvas id="motionCanvas"></canvas>
+        <div class="hero-left">
+            <div class="hero-tag rev">Juzo Compression Collection</div>
+            <h1 class="hero-h1 rev d1">Move better.<br><span>Feel stronger.</span><br>Live well.</h1>
+            <p class="hero-p rev d2">Medical-grade Juzo compression socks designed to support your circulation, reduce swelling, and keep you comfortable — all day, every day.</p>
+            <div class="hero-ctas rev d3">
+                <a href="#products" class="btn-primary">Shop Collection <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <a href="#guide" class="btn-secondary">Compression Guide</a>
+            </div>
+            <div class="hero-stats rev d4">
+                <div><div class="stat-num">20–30mmHg</div><div class="stat-lbl">Medical Grade</div></div>
+                <div class="stat-sep"></div>
+                <div><div class="stat-num">4</div><div class="stat-lbl">Styles Available</div></div>
+                <div class="stat-sep"></div>
+                <div><div class="stat-num">5</div><div class="stat-lbl">Size Options I–V</div></div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-blob hb1"></div>
+            <div class="hero-blob hb2"></div>
+            <div class="hero-grid">
+                <div class="hero-pcard">
+                    <img src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High-Beige.jpg?v=1730140406&width=400" alt="Knee High">
+                    <div class="hero-pcard-body">
+                        <div class="hpc-label">Knee High · Closed Toe</div>
+                        <div class="hpc-name">Juzo Compression Sock</div>
+                        <div class="hpc-row"><div class="hpc-price">$35+</div><button class="hpc-add" onclick="addToCart('p1','Knee High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High-Beige.jpg?v=1730140406&width=400',35)">+</button></div>
+                    </div>
+                </div>
+                <div class="hero-pcard">
+                    <img src="https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Black.jpg?v=1730142908&width=400" alt="Thigh High">
+                    <div class="hero-pcard-body">
+                        <div class="hpc-label">Thigh High · Closed Toe</div>
+                        <div class="hpc-name">Juzo Compression Stocking</div>
+                        <div class="hpc-row"><div class="hpc-price">$55+</div><button class="hpc-add" onclick="addToCart('p3','Thigh High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Black.jpg?v=1730142908&width=400',55)">+</button></div>
+                    </div>
+                </div>
+                <div class="hero-pcard">
+                    <img src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=400" alt="Knee High OT">
+                    <div class="hero-pcard-body">
+                        <div class="hpc-label">Knee High · Open Toe</div>
+                        <div class="hpc-name">Juzo Compression Sock</div>
+                        <div class="hpc-row"><div class="hpc-price">$35+</div><button class="hpc-add" onclick="addToCart('p2','Knee High Open Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=400',35)">+</button></div>
+                    </div>
+                </div>
+                <div class="hero-pcard">
+                    <img src="https://dmesocks.com/cdn/shop/files/JuzoThighHighBlackOT.jpg?v=1730143206&width=400" alt="Thigh High OT">
+                    <div class="hero-pcard-body">
+                        <div class="hpc-label">Thigh High · Open Toe</div>
+                        <div class="hpc-name">Juzo Compression Stocking</div>
+                        <div class="hpc-row"><div class="hpc-price">$55+</div><button class="hpc-add" onclick="addToCart('p4','Thigh High Open Toe','https://dmesocks.com/cdn/shop/files/JuzoThighHighBlackOT.jpg?v=1730143206&width=400',55)">+</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <div class="mq-item"><span class="mq-dot"></span> 20–30mmHg Medical Grade</div>
+            <div class="mq-item"><span class="mq-dot"></span> 4 Styles Available</div>
+            <div class="mq-item"><span class="mq-dot"></span> 5 Size Options I–V</div>
+            <div class="mq-item"><span class="mq-dot"></span> 2 Colour Choices</div>
+            <div class="mq-item"><span class="mq-dot"></span> HSA & FSA Eligible</div>
+            <div class="mq-item"><span class="mq-dot"></span> Juzo Authorized Retailer</div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <section id="products" class="section products-section">
+        <div class="section-inner">
+            <div class="products-top rev">
+                <div>
+                    <div class="eyebrow">Juzo Collection</div>
+                    <h2 class="heading">Four styles. <em>One trusted brand.</em></h2>
+                    <p class="subtext">Available in beige & black, sizes I–V. All manufactured to medical device standards.</p>
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-tab" onclick="filterProducts('knee')">Knee High</button>
+                    <button class="filter-tab" onclick="filterProducts('thigh')">Thigh High</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsDisplayGrid">
+                <div class="pcard featured rev" data-pid="p1" data-type="knee">
+                    <div class="pcard-img">
+                        <span class="pbadge pbadge-teal">Best Seller</span>
+                        <img id="pimg-p1" src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High-Beige.jpg?v=1730140406&width=800" data-beige="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High-Beige.jpg?v=1730140406&width=800" data-black="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black.jpg?v=1730142908&width=800" alt="Juzo Knee High">
+                        <div class="pcard-swatches">
+                            <div class="pswatch beige active" title="Beige" onclick="swapColour(this,'p1','beige','Beige')"></div>
+                            <div class="pswatch black" title="Black" onclick="swapColour(this,'p1','black','Black')"></div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div>
+                            <div class="pc-brand">Juzo · Knee High</div>
+                            <div class="pc-name">Compression Socks — Closed Toe</div>
+                            <p class="pc-desc">The most popular choice for everyday wear, travel, and prolonged standing. Full closed-toe coverage for complete graduated compression and all-day comfort.</p>
+                            <div class="pc-colour-row"><span class="pc-colour-lbl">Colour:</span> <span class="pc-colour-val" id="clabel-p1">Black</span></div>
+                            <div class="pc-size-row">
+                                <div class="pc-size-top"><span class="pc-size-lbl">Size</span> <span class="pc-size-guide" onclick="showSizeGuide()">Size Guide →</span></div>
+                                <div class="sizes-wrap" id="sizes-p1">
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p1')">I</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p1')">II</button>
+                                    <button class="szpill active" onclick="pickSize(this,'sizes-p1')">III</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p1')">IV</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p1')">V</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pc-foot">
+                            <div class="pc-price"><sup>$</sup>35</div>
+                            <button class="btn-atc" onclick="addToCart('p1','Knee High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High-Beige.jpg?v=1730140406&width=800',35)">Add to Cart <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcard rev d1" data-pid="p2" data-type="knee">
+                    <div class="pcard-img">
+                        <span class="pbadge pbadge-outline">Open Toe</span>
+                        <img id="pimg-p2" src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=600" data-beige="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Beige_OT.jpg?v=1730141228&width=600" data-black="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=600" alt="Juzo Knee High OT">
+                        <div class="pcard-swatches">
+                            <div class="pswatch beige" title="Beige" onclick="swapColour(this,'p2','beige','Beige')"></div>
+                            <div class="pswatch black active" title="Black" onclick="swapColour(this,'p2','black','Black')"></div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div>
+                            <div class="pc-brand">Juzo · Knee High</div>
+                            <div class="pc-name">Compression Socks — Open Toe</div>
+                            <p class="pc-desc">Same 20–30 mmHg compression with an open toe for patients with wide toe boxes or individual fit preferences.</p>
+                            <div class="pc-colour-row"><span class="pc-colour-lbl">Colour:</span> <span class="pc-colour-val" id="clabel-p2">Black</span></div>
+                            <div class="pc-size-row">
+                                <div class="pc-size-top"><span class="pc-size-lbl">Size</span> <span class="pc-size-guide" onclick="showSizeGuide()">Size Guide →</span></div>
+                                <div class="sizes-wrap" id="sizes-p2">
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p2')">I</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p2')">II</button>
+                                    <button class="szpill active" onclick="pickSize(this,'sizes-p2')">III</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p2')">IV</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p2')">V</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pc-foot">
+                            <div class="pc-price"><sup>$</sup>35</div>
+                            <button class="btn-atc" onclick="addToCart('p2','Knee High Open Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=600',35)">Add to Cart <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcard rev d2" data-pid="p3" data-type="thigh">
+                    <div class="pcard-img">
+                        <span class="pbadge pbadge-dark">Thigh High</span>
+                        <img id="pimg-p3" src="https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Black.jpg?v=1730142908&width=600" data-beige="https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Beige.jpg?v=1730142031&width=600" data-black="https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Black.jpg?v=1730142908&width=600" alt="Juzo Thigh High">
+                        <div class="pcard-swatches">
+                            <div class="pswatch beige" title="Beige" onclick="swapColour(this,'p3','beige','Beige')"></div>
+                            <div class="pswatch black active" title="Black" onclick="swapColour(this,'p3','black','Black')"></div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div>
+                            <div class="pc-brand">Juzo · Thigh High</div>
+                            <div class="pc-name">Compression Stockings — Closed Toe</div>
+                            <p class="pc-desc">Full-leg compression from toe to thigh for varicose veins, lymphedema, and professional recovery protocols.</p>
+                            <div class="pc-colour-row"><span class="pc-colour-lbl">Colour:</span> <span class="pc-colour-val" id="clabel-p3">Black</span></div>
+                            <div class="pc-size-row">
+                                <div class="pc-size-top"><span class="pc-size-lbl">Size</span> <span class="pc-size-guide" onclick="showSizeGuide()">Size Guide →</span></div>
+                                <div class="sizes-wrap" id="sizes-p3">
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p3')">I</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p3')">II</button>
+                                    <button class="szpill active" onclick="pickSize(this,'sizes-p3')">III</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p3')">IV</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p3')">V</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pc-foot">
+                            <div class="pc-price"><sup>$</sup>55</div>
+                            <button class="btn-atc" onclick="addToCart('p3','Thigh High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Black.jpg?v=1730142908&width=600',55)">Add to Cart <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcard rev d3" data-pid="p4" data-type="thigh">
+                    <div class="pcard-img">
+                        <span class="pbadge pbadge-outline">Thigh · Open Toe</span>
+                        <img id="pimg-p4" src="https://dmesocks.com/cdn/shop/files/JuzoThighHighBlackOT.jpg?v=1730143206&width=600" data-beige="https://dmesocks.com/cdn/shop/files/JuzoThighHighBeigeOT.jpg?v=1730143206&width=600" data-black="https://dmesocks.com/cdn/shop/files/JuzoThighHighBlackOT.jpg?v=1730143206&width=600" alt="Juzo Thigh High OT">
+                        <div class="pcard-swatches">
+                            <div class="pswatch beige" title="Beige" onclick="swapColour(this,'p4','beige','Beige')"></div>
+                            <div class="pswatch black active" title="Black" onclick="swapColour(this,'p4','black','Black')"></div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div>
+                            <div class="pc-brand">Juzo · Thigh High</div>
+                            <div class="pc-name">Compression Stockings — Open Toe</div>
+                            <p class="pc-desc">Thigh-high graduated therapeutic compression with open-toe styling for flexible toe space or wearing comfort.</p>
+                            <div class="pc-colour-row"><span class="pc-colour-lbl">Colour:</span> <span class="pc-colour-val" id="clabel-p4">Black</span></div>
+                            <div class="pc-size-row">
+                                <div class="pc-size-top"><span class="pc-size-lbl">Size</span> <span class="pc-size-guide" onclick="showSizeGuide()">Size Guide →</span></div>
+                                <div class="sizes-wrap" id="sizes-p4">
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p4')">I</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p4')">II</button>
+                                    <button class="szpill active" onclick="pickSize(this,'sizes-p4')">III</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p4')">IV</button>
+                                    <button class="szpill" onclick="pickSize(this,'sizes-p4')">V</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pc-foot">
+                            <div class="pc-price"><sup>$</sup>55</div>
+                            <button class="btn-atc" onclick="addToCart('p4','Thigh High Open Toe','https://dmesocks.com/cdn/shop/files/JuzoThighHighBlackOT.jpg?v=1730143206&width=600',55)">Add to Cart <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section features-section">
+        <div class="section-inner">
+            <div class="rev">
+                <div class="eyebrow">Why Juzo</div>
+                <h2 class="heading">Engineered for <em>real relief.</em></h2>
+            </div>
+            <div class="feat-grid">
+                <div class="feat-left">
+                    <div class="feat-item rev d1">
+                        <div class="feat-icon-wrap">🎯</div>
+                        <div><div class="feat-name">Graduated Compression Technology</div><div class="feat-desc">Strongest at the ankle, reducing progressively upward. Actively pushes blood back toward the heart.</div></div>
+                    </div>
+                    <div class="feat-item rev d2">
+                        <div class="feat-icon-wrap"></div>
+                        <div><div class="feat-name">Premium Moisture-Wicking Fabric</div><div class="feat-desc">Breathable yarn blends keep feet dry and comfortable through 12+ hours of continuous wear.</div></div>
+                    </div>
+                    <div class="feat-item rev d3">
+                        <div class="feat-icon-wrap"></div>
+                        <div><div class="feat-name">Precision Sizing System</div><div class="feat-desc">Five sizing bands mapped across exact ankle configurations for targeted medical efficiency.</div></div>
+                    </div>
+                </div>
+                <div class="feat-right">
+                    <div class="fcard rev d1"><div class="fc-num">98%</div><div class="fc-label">of patient tracking sets report immediate operational relief profiles</div></div>
+                    <div class="fcard rev d2"><div class="fc-num">12h</div><div class="fc-label">All-day certified wearing standard architecture</div></div>
+                    <div class="fcard span2 rev d3"><div class="fc-icon">💳</div><div><div class="fc-num" style="font-size:1.5rem">FSA Eligible</div><div class="fc-label">Fully flexible spending account parameters matching global card limits</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare -->
+    <section class="section compare-section">
+        <div class="compare-bg"></div>
+        <div class="section-inner" style="position:relative;z-index:2;">
+            <div class="rev">
+                <div class="eyebrow">Side by Side</div>
+                <h2 class="heading">All four Juzo styles.</h2>
+            </div>
+            <div class="compare-grid">
+                <div class="ccard rev d1">
+                    <div class="ccard-n">01</div>
+                    <img class="ccard-img" src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_ff927568-841e-4e66-b739-cfa22ac66f9a.jpg?v=1730140049&width=200" alt="Knee High">
+                    <div class="ccard-name">Knee High<br>Closed Toe</div>
+                    <div class="ccard-desc">For standing, travel, mild conditions. Beige & black.</div>
+                    <div class="ccard-price">$35.00</div>
+                    <div class="ccard-tag">Most Popular</div>
+                    <button class="ccard-btn" onclick="addToCart('p1','Knee High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_ff927568-841e-4e66-b739-cfa22ac66f9a.jpg?v=1730140049&width=200',35)">Add to Cart</button>
+                </div>
+                <div class="ccard rev d2">
+                    <div class="ccard-n">02</div>
+                    <img class="ccard-img" src="https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=200" alt="Knee High OT">
+                    <div class="ccard-name">Knee High<br>Open Toe</div>
+                    <div class="ccard-desc">Open toe execution for sandal layout preference options.</div>
+                    <div class="ccard-price">$35.00</div>
+                    <div class="ccard-tag">Toe Freedom</div>
+                    <button class="ccard-btn" onclick="addToCart('p2','Knee High Open Toe','https://dmesocks.com/cdn/shop/files/Juzo_Knee_High_Black_OT.jpg?v=1730141228&width=200',35)">Add to Cart</button>
+                </div>
+                <div class="ccard rev d3">
+                    <div class="ccard-n">03</div>
+                    <img class="ccard-img" src="https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Beige.jpg?v=1730142031&width=200" alt="Thigh High">
+                    <div class="ccard-name">Thigh High<br>Closed Toe</div>
+                    <div class="ccard-desc">Extended verification profiles running continuous leg length tracks.</div>
+                    <div class="ccard-price">$55.00</div>
+                    <div class="ccard-tag">Full Coverage</div>
+                    <button class="ccard-btn" onclick="addToCart('p3','Thigh High Closed Toe','https://dmesocks.com/cdn/shop/files/Juzo_Thigh_High_Beige.jpg?v=1730142031&width=200',55)">Add to Cart</button>
+                </div>
+                <div class="ccard rev d4">
+                    <div class="ccard-n">04</div>
+                    <img class="ccard-img" src="https://dmesocks.com/cdn/shop/files/JuzoThighHighBeigeOT.jpg?v=1730143206&width=200" alt="Thigh High OT">
+                    <div class="ccard-name">Thigh High<br>Open Toe</div>
+                    <div class="ccard-desc">Full thigh architecture coupled with direct open toe layout systems.</div>
+                    <div class="ccard-price">$55.00</div>
+                    <div class="ccard-tag">Flexible Fit</div>
+                    <button class="ccard-btn" onclick="addToCart('p4','Thigh High Open Toe','https://dmesocks.com/cdn/shop/files/JuzoThighHighBeigeOT.jpg?v=1730143206&width=200',55)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="hiw" class="section hiw-section">
+        <div class="section-inner">
+            <div class="rev" style="text-align:center;max-width:600px;margin:0 auto;">
+                <div class="eyebrow">Getting Started</div>
+                <h2 class="heading">Three steps to <em>better circulation.</em></h2>
+            </div>
+            <div class="steps">
+                <div class="step rev d1" data-n="1">
+                    <div class="step-ico">🩺</div>
+                    <div class="step-name">Choose Your Style</div>
+                    <div class="step-desc">Select knee-high or thigh-high formats across designated therapeutic parameters.</div>
+                </div>
+                <div class="step rev d2" data-n="2">
+                    <div class="step-ico">🛒</div>
+                    <div class="step-name">Order with Confidence</div>
+                    <div class="step-desc">Add active items directly into your local storage container for check validation routines.</div>
+                </div>
+                <div class="step rev d3" data-n="3">
+                    <div class="step-ico">💚</div>
+                    <div class="step-name">Wear & Feel Better</div>
+                    <div class="step-desc">Deploy regular placement operations to confirm continuous health feedback values.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+        <div class="cta-inner rev">
+            <div class="eyebrow">Get Started</div>
+            <h2 class="heading">Ready to move<br><em>without limits?</em></h2>
+            <p class="cta-p">Four Juzo styles. Beige and black. Sizes I–V. Secured payment methods supported natively.</p>
+            <div class="cta-btns">
+                <a href="#products" class="btn-cta-white">Shop All Styles</a>
+                <button class="btn-cta-ghost" onclick="openLogin()">Create Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <p class="ft" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:12px;">OVENA <span style="color:var(--teal);">HEALTH</span></p>
+                    <p class="ft">Medical-grade Juzo compression therapy. Authorized retailer trusted by physicians and patients nationwide.</p>
+                </div>
+                <div class="fcol">
+                    <h4>Products</h4>
+                    <ul><li><a href="#products">Knee High Closed Toe</a></li><li><a href="#products">Knee High Open Toe</a></li></ul>
+                </div>
+                <div class="fcol">
+                    <h4>Support</h4>
+                    <ul><li><a href="#">Sizing Matrix Info</a></li><li><a href="#">Security Protocols</a></li></ul>
+                </div>
+                <div class="fcol">
+                    <h4>Company</h4>
+                    <ul><li><a href="#">About Ovena</a></li></ul>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <span>© 2026 Ovena Health. All rights reserved.</span>
+                <div class="footer-links-b"><a href="#">Privacy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay" class="overlay" onclick="overlayClick(event,'loginOverlay')">
+        <div class="modal">
+            <button class="modal-x" onclick="closeLogin()">✕</button>
+            <div id="loginView">
+                <div class="modal-title">Welcome back</div>
+                <div class="modal-sub">Sign in to your Ovena Health account</div>
+                <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="you@example.com"/></div>
+                <div class="fg"><label class="fl">Password</label><input class="fi" type="password" placeholder="••••••••"/></div>
+                <button class="btn-modal" onclick="doLogin()">Sign In</button>
+                <div class="modal-swap">No account? <a href="#" onclick="toRegister()">Create one free</a></div>
+            </div>
+            <div id="registerView" style="display:none;">
+                <div class="modal-title">Create account</div>
+                <div class="modal-sub">Join Ovena Health for easy reorders</div>
+                <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="you@example.com"/></div>
+                <div class="fg"><label class="fl">Password</label><input class="fi" type="password" placeholder="••••••••"/></div>
+                <button class="btn-modal" onclick="doRegister()">Create Account</button>
+                <div class="modal-swap">Already have an account? <a href="#" onclick="toLogin()">Sign in</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay & Drawer -->
+    <div id="cartOverlay" class="cart-overlay" onclick="if(event.target.id==='cartOverlay') closeCart()"></div>
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cdh">
+            <div class="cdh-left">
+                <h2>Your Cart</h2>
+                <p id="cdCount">0 items</p>
+            </div>
+            <button class="cd-close" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cd-body" id="cdBody">
+            <div id="cdEmpty" class="cd-empty">
+                <div class="cd-empty-ico">🛒</div>
+                <h3>Your cart is empty</h3>
+                <p>Looks like you haven't added any Juzo compression gear yet.</p>
+            </div>
+        </div>
+        <div class="cd-footer">
+            <div class="cd-subtotal"><span class="cd-sub-lbl">Subtotal</span><span class="cd-sub-val" id="cdTotal">$0.00</span></div>
+            <div class="cd-footnote">Taxes & shipping calculated at checkout</div>
+            <button class="btn-checkout" onclick="doCheckout()">Proceed to Checkout</button>
+            <button class="btn-continue" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Payment Overlay (Checkout Modal) -->
+    <!-- Payment Overlay (Checkout Modal) -->
+<div id="paymentOverlay" class="overlay" onclick="if(event.target.id==='paymentOverlay') closePayment()">
+  <div class="modal" style="width:560px;max-height:90vh;overflow-y:auto;padding:36px 36px 32px;">
+    <button class="modal-x" onclick="closePayment()">✕</button>
+    <div class="modal-title">Secure Checkout</div>
+    <div id="paymentSummary" style="margin-bottom:18px;"></div>
+
+    <!-- STEP 1: PAYMENT METHOD SELECTION -->
+    <div id="payment-method-section">
+      <p style="font-size:.78rem;font-weight:600;color:var(--n600);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;"> Choose Payment Method</p>
+      <div id="methodSelection" class="filter-tabs" style="margin-bottom:18px;">
+        <button id="tab-card" class="filter-tab active" onclick="selectMethod('card')">💳 Card</button>
+        <button id="tab-upi"  class="filter-tab"        onclick="selectMethod('upi')"> UPI</button>
+        <button id="tab-cod"  class="filter-tab"        onclick="selectMethod('cod')">🚚 COD</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: METHOD-SPECIFIC FORMS -->
+    <div id="card-form" class="pay-form" style="display:flex;">
+      <div style="background:var(--teal-l);border:1px solid rgba(74,179,192,.3);border-radius:var(--r-md);padding:12px 16px;font-size:.82rem;color:var(--teal-d);margin-bottom:10px;">
+        🔒 <strong>Test Mode:</strong> Use card <strong>4242 4242 4242 4242</strong> to simulate a successful payment.
+      </div>
+      <div class="card-number-wrap">
+        <input id="card-number" type="text" inputmode="numeric" placeholder="Card number" oninput="onCardNumberInput(this)" maxlength="23"/>
+        <div id="card-brand-badge" class="card-brand-badge">Detecting…</div>
+      </div>
+      <input id="card-name" type="text" placeholder="Cardholder name"/>
+      <div class="exp-row">
+        <select id="card-exp-month"><option value="" disabled selected>MM</option></select>
+        <input id="card-exp-year" type="text" inputmode="numeric" placeholder="YYYY" maxlength="4"/>
+        <input id="card-cvc" type="text" inputmode="numeric" placeholder="CVC" maxlength="4"/>
+      </div>
+      <div id="card-brand-hint" class="field-hint">We accept Visa, Mastercard, RuPay, and Amex.</div>
+      <div id="card-error" class="pay-error"></div>
+    </div>
+
+    <div id="upi-form" class="pay-form" style="display:none;">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px;">
+        <label style="font-size:.78rem;font-weight:600;color:var(--n700);">Wallet Provider</label>
+        <select id="upi-choice" onchange="generateUPIQR()" style="flex:1;padding:9px 12px;border-radius:var(--r-md);border:1.5px solid var(--n200);background:var(--n50);">
+          <option value="gpay">Google Pay</option>
+          <option value="applepay">Apple Pay</option>
+          <option value="venmo">Venmo</option>
+          <option value="upi">Generic UPI Endpoint</option>
+        </select>
+      </div>
+      <div class="upi-qr-container">
+        <p style="font-size:.82rem;color:var(--n600);margin-bottom:10px;">
+          <span id="upi-provider-icon" style="font-size:1.2rem;"></span>
+          <span id="upi-scan-copy">Scan the QR code below to complete payment:</span>
+        </p>
+        <img id="upi-qr" alt="UPI QR" style="border:1px solid var(--n200);padding:10px;border-radius:var(--r-md);max-width:200px;"/>
+        <div id="upi-ref-line" class="upi-ref"></div>
+        <div class="upi-timer">⏱ QR refreshes in <span id="upi-timer-val">05:00</span></div>
+      </div>
+    </div>
+
+    <div id="cod-form" class="pay-form" style="display:none;">
+      <div style="background:var(--teal-l);border:1px solid rgba(74,179,192,.3);border-radius:var(--r-md);padding:14px 16px;font-size:.86rem;color:var(--teal-d);line-height:1.6;">
+        🚚 <strong>Cash on Delivery</strong> — pay when your order arrives. Please ensure the shipping details below are accurate.
+      </div>
+    </div>
+
+    <!-- STEP 3: SHARED SHIPPING ADDRESS (asked ONCE for all methods) -->
+    <div id="shipping-form" style="display:block;margin-top:22px;">
+      <p style="font-size:.78rem;font-weight:600;color:var(--n600);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">📦 Shipping Details</p>
+      <div class="pay-form" style="margin-top:0;">
+        <input id="ship-name" type="text" placeholder="Full Name *"/>
+        
+        <input id="ship-email" type="email" placeholder="Email Address *" onblur="validateEmailFormat()"/>
+        <div id="email-status" class="zip-status"></div>
+        
+        <div id="email-otp-group" class="phone-group" style="display:none;margin-top:10px;">
+          <input id="email-otp" type="text" placeholder="Enter 6-digit OTP" maxlength="6" style="letter-spacing:.2em;text-align:center;"/>
+          <button type="button" class="cd-qty-btn" style="width:auto;padding:0 20px;background:var(--a500);color:var(--white);border-radius:var(--r-md);" onclick="verifyEmailOTP()">Verify</button>
+        </div>
+        <div id="email-otp-status" class="zip-status"></div>
+        
+        <div class="phone-group">
+          <select id="ship-country-code"></select>
+          <input id="ship-phone" type="tel" placeholder="Phone Number *" onblur="validatePhone()"/>
+        </div>
+        <div id="phone-status" class="zip-status"></div>
+        
+        <input id="ship-address" type="text" placeholder="Street Address *"/>
+        <input id="ship-landmark" type="text" placeholder="Landmark (Optional)"/>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <input id="ship-city" type="text" placeholder="City *"/>
+          <input id="ship-state" type="text" placeholder="State / Province *"/>
+        </div>
+        <input id="ship-zip" type="text" placeholder="ZIP / Postal Code *" oninput="onZipInput()"/>
+        <div id="zip-status" class="zip-status"></div>
+        <input id="ship-country" type="text" placeholder="Country *" readonly style="background:var(--n100);"/>
+        <div id="shipping-error" class="pay-error"></div>
+      </div>
+    </div>
+
+    <button id="main-pay-btn" class="pay-btn" onclick="processPayment()">Complete Order ✓</button>
+
+    <div id="success-screen" class="success-screen" style="display:none;">
+      <h3>✓ Order Placed Successfully!</h3>
+      <p style="color:var(--n400);font-size:.88rem;margin-bottom:14px;">Your order details have been saved.</p>
+      <div id="tracking-details" class="tracking-details"></div>
+      <button class="pay-btn" style="margin-top:18px;" onclick="closePayment()">Close</button>
+    </div>
+  </div>
+</div>
+    <!-- Toast -->
+    <div id="toast" class="toast"><div class="toast-icon">✓</div><span id="toastMsg">Added to cart</span></div>
+
+    <!-- CDNs: EmailJS, libphonenumber -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://unpkg.com/libphonenumber-js@1.10.49/bundle/libphonenumber-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
